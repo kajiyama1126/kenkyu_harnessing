@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from agent import Agent, Agent_moment_CDC2017, new_Agent, new_Agent_moment_CDC2017, new_Agent_L2, \
-    new_Agent_moment_CDC2017_L2, new_Agent_harnessing_L2, new_Agent_harnessing_L2_code
+    new_Agent_moment_CDC2017_L2, new_Agent_harnessing_L2, new_Agent_harnessing_L2_code,new_Agent_harnessing_L2_x_code
 from make_communication import Communication
 from problem import Lasso_problem, New_Lasso_problem, New_Ridge_problem
 
@@ -304,7 +304,7 @@ class new_iteration_L2_harnessing_code(new_iteration_L2_harnessing):
         Agents = self.make_agent(pattern)
         f_error_history = []
         for k in range(self.iterate):
-            print(k)
+            # print(k)
             # グラフの時間変化
             for i in range(self.n):
                 Agents[i].weight = self.P_history[k][i]
@@ -341,7 +341,20 @@ class new_iteration_L2_harnessing_code(new_iteration_L2_harnessing):
             P_history.append(weight_graph.P)
         return P, P_history
 
-
+class new_iteration_L2_harnessing_x_code(new_iteration_L2_harnessing_code):
+    def make_agent(self, pattern):
+        Agents = []
+        s = self.step[pattern]
+        for i in range(self.n):
+            if pattern % 2 == 0:
+                Agents.append(
+                    new_Agent_L2(self.n, self.m, self.A[i], self.p[i], s, self.lamb, name=i, weight=None, R=self.R))
+            elif pattern % 2 == 1:
+                Agents.append(
+                    new_Agent_harnessing_L2_x_code(self.n, self.m, self.A[i], self.p[i], s, self.lamb, name=i,
+                                                 weight=None,
+                                                 R=self.R))
+        return Agents
 
 if __name__ == '__main__':
     n = 50
