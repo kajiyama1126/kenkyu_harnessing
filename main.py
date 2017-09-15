@@ -1,6 +1,6 @@
 import numpy as np
 
-from iteration import new_iteration_L2_harnessing_code,new_iteration_L2_harnessing_x_code
+from iteration import new_iteration_L2_harnessing_quantize,new_iteration_L2_harnessing_x_quantize
 
 if __name__ == '__main__':
     n = 20
@@ -24,6 +24,6 @@ if __name__ == '__main__':
         # tmp = new_iteration_Dist(n, m, step, lamb, R, pattern, test)
         # tmp = new_iteration_L1_paper2(n, m, step, lamb, R, pattern, test)
         # tmp = new_iteration_L2_harnessing(n, m, step, lamb, R, pattern, test)
-        tmp = new_iteration_L2_harnessing_code(n, m, step, lamb, R, pattern, test)
+        tmp = new_iteration_L2_harnessing_quantize(n, m, step, lamb, R, pattern, test)
 
     print('finish2')
