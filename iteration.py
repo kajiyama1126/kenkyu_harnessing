@@ -2,7 +2,7 @@ import matplotlib.pyplot as plt
 import numpy as np
 
 from agent import Agent, Agent_moment_CDC2017, new_Agent, new_Agent_moment_CDC2017, new_Agent_L2, \
-    new_Agent_moment_CDC2017_L2, new_Agent_harnessing_L2, new_Agent_harnessing_L2_quantize,new_Agent_harnessing_L2_x_code
+    new_Agent_moment_CDC2017_L2, new_Agent_harnessing_L2, new_Agent_harnessing_L2_quantize,new_Agent_harnessing_L2_x_quantize
 from make_communication import Communication
 from problem import Lasso_problem, New_Lasso_problem, New_Ridge_problem
 
@@ -351,9 +351,9 @@ class new_iteration_L2_harnessing_x_quantize(new_iteration_L2_harnessing_quantiz
                     new_Agent_harnessing_L2(self.n, self.m, self.A[i], self.p[i], s, self.lamb, name=i, weight=None, R=self.R))
             elif pattern % 2 == 1:
                 Agents.append(
-                    new_Agent_harnessing_L2_x_code(self.n, self.m, self.A[i], self.p[i], s, self.lamb, name=i,
-                                                 weight=None,
-                                                 R=self.R))
+                    new_Agent_harnessing_L2_x_quantize(self.n, self.m, self.A[i], self.p[i], s, self.lamb, name=i,
+                                                       weight=None,
+                                                       R=self.R))
         return Agents
 
 if __name__ == '__main__':

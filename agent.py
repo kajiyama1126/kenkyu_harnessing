@@ -103,9 +103,9 @@ class new_Agent_harnessing_L2(new_Agent_L2):
         self.x_i = np.dot(self.weight, self.x) - self.eta *self.v_i
         self.v_i = np.dot(self.weight, self.v) +  (self.subgrad() - grad_bf)
 #
-class new_Agent_harnessing_L2_x_code(new_Agent_harnessing_L2):
+class new_Agent_harnessing_L2_x_quantize(new_Agent_harnessing_L2):
     def __init__(self, n, m, A, p, s, lamb, name, weight=None, R=1000000):
-        super(new_Agent_harnessing_L2_x_code, self).__init__(n, m, A, p, s, lamb, name, weight, R=R)
+        super(new_Agent_harnessing_L2_x_quantize, self).__init__(n, m, A, p, s, lamb, name, weight, R=R)
         self.Encoder = Encoder(self.n, self.m, self.x_i)
         self.Decoder = Decoder(self.n, self.m, self.x_i)
         # self.z_ij= np.zeros_like(self.x,int)
