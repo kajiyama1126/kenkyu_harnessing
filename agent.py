@@ -202,8 +202,8 @@ class new_Agent_harnessing_L2_quantize(new_Agent_harnessing_L2):
 
 class Coder(object):
     def __init__(self):
-        self.eta = 0.98
-        self.eta2 = 0.98
+        self.eta = 0.97
+        self.eta2 = 0.97
         self.G = 1.0
         self.H = 1.0
 
