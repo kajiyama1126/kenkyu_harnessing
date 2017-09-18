@@ -8,12 +8,12 @@ if __name__ == '__main__':
     lamb = 0.0
     R = 400
     np.random.seed(0)  # ランダム値固定
-    pattern = 2
-    test = 2000
+    pattern = 4
+    test = 1000
     # step = [0.25, 0.25, 0.5, 0.5, 1., 1., 2., 2.]
     # step = [2.0,0.2,5.0,0.5,10.0,1.0,20.0,2.0]
     # step = [0.5, 0.5, 0.5, 0.7, 0.5, 0.9, 0.5, 0.99]
-    step = [1.0,0.05]
+    step = [0.05,0.05,0.01,0.01]
     print(n,m,lamb,R,test)
     if pattern != len(step):
         print('error')
